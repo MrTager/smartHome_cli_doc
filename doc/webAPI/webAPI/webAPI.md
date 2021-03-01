@@ -64,4 +64,73 @@
             })
         })
     },
-## 
+## 获取当前设备下的子设备
+    调用方式
+    Honyar.getListSubDevice(userId,iotId,parentProductKey,platform)
+    源码
+    /**
+     * 获取当前设备下的子设备
+     * @param {*} userId 用户userId
+     * @param {*} iotId 设备IotId
+     * @param {*} parentProductKey 当前设备的parentProductKey
+     * @param {*} platform 平台代码
+     */
+    getListSubDevice(userId,iotId,parentProductKey,platform){
+        let request = {
+            'platform': platform === undefined ? "1" : platform,
+            'api': '/appUser/listSubDevices',
+            'Content-Type': 'application/json',
+            'needAuth': 'true'
+        }
+        let params = {
+            "userId": userId,
+            "pageNo": 1,
+            "pageSize": 1000,
+            "parentIotId": iotId,
+            "parentProductKey": parentProductKey
+        }
+        return new Promise((resolve,reject)=>{
+            HonYarSmartSDK.getServerData(request, params, (res) => {
+                if(JSON.parse(res).code === 200){
+                    resolve(res)
+                }else{
+                    reject(res)
+                }
+            })
+        })
+    },
+## 请求平台服务
+    调用方式
+    HonYar.getServer(api, params, func, platform,apiVersion)
+    源码
+    /**
+     * 请求服务
+     * @param {*} api 服务api
+     * @param {*} params 参数
+     * @param {*} func 回调
+     * @param {*} platform 平台代码
+     * @param {*} apiVersion 服务端api版本号
+     */
+    getServer(api, params, func, platform,apiVersion) {
+        let request = {
+            "platform": platform === undefined ? "1" : platform,
+            "apiVersion": apiVersion === undefined ? "1.0" : apiVersion,
+            "url": "",
+            "api": api,
+            "Content-Type": "application/json",
+            "needAuth": "true"
+        }
+        HonYarSmartSDK.getServerData(request, params, (res) => {
+            if (JSON.parse(res).code === 200) {
+                if (func !== undefined) {
+                    func(res)
+                } else {
+                    // console.log("func_undefined")
+                }
+            } else {
+                //弹错
+                console.error(res)
+                this.show_toast(res)
+            }
+        })
+    },
