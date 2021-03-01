@@ -1,6 +1,6 @@
 # 模块化容器
 
-<img src="./image/iframe_1.jpg" width = "400" height = "300" alt="模块化容器" align=center />
+<img src="./image/iframe_1.jpg" width = "400" height = "250" alt="模块化容器" align=center />
 <img src="./image/modelFrame1.png" width = "400" height = "300" alt="模块化容器" align=center />
 
 ### 导入注册及使用
@@ -53,6 +53,8 @@
 ---
 
 # 缓动容器
+
+<img src="./image/缓动容器.gif" width = "200" height = "450" alt="缓动容器" align=center />
 
 ### 导入注册及使用
 <!-- style='background-color:#f9f2f4' -->

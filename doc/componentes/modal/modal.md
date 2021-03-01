@@ -1,6 +1,6 @@
 # 模态框底部弹窗
-<img src="./image/模态框1.gif" width = "200" height = "450" alt="莫泰底部弹框" align=center />
-<img src="./image/模态框2.gif" width = "200" height = "450" alt="莫泰底部弹框" align=center />
+<img src="./image/模态框1.gif" width = "200" height = "450" alt="模态底部弹框" align=center />
+<img src="./image/模态框2.gif" width = "200" height = "450" alt="模态底部弹框" align=center />
 
 ### 导入注册及使用
 <!--  style='background-color:#f9f2f4' -->
