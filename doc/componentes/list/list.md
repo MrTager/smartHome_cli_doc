@@ -96,3 +96,56 @@
 | 属性  | placeholder | "占位文字" | String | 是 | |
 | 事件  | @input | @input方法 | Function | 是 | 该事件为输入框输入的回调事件 |
 
+# 带check的列项
+
+<img src="./img/checkList.jpg" width = "200" height = "450" alt="模态底部弹框" align=center />
+
+### 导入注册及使用
+<!--  style='background-color:#f9f2f4' -->
+<details open>
+<summary><font color='#30b826' size='3px'> View Code</font></summary>
+
+    <template>
+        <List-Item-Chick v-for="(item,i) in weekModal_data.arr" :key="i" :title="item.name" :state="item.flag" @event="changeWeek(i)"></List-Item-Chick>
+    </template>
+    <script>
+    import { ListItemChick } from "@/component_library"
+
+    export default {
+        ...
+        data(){
+            return {
+                weekModal_data:{
+                    arr:[
+                    {name:'仅一次',flag:true},
+                    {name:'周日',flag:false},
+                    {name:'周一',flag:false},
+                    {name:'周二',flag:false},
+                    {name:'周三',flag:false},
+                    {name:'周四',flag:false},
+                    {name:'周五',flag:false},
+                    {name:'周六',flag:false}]
+                },
+            }
+        },
+        components: {
+            "List-Item-Chick":ListItemChick
+        },
+        methods: {
+            changePropName(key,e){
+                //执行动作
+            }
+        }
+    }
+    </script>
+
+</details>
+    
+    
+### 说明
+    输入框只允许输入中英文，并最多输入15位字符
+|  类型   | 名称  | 值  | 值类型 | 必填  | 说明 |
+|  ----  | ----  |  ----  | ----  | ----  | ---- |
+| 属性  | title | "标题" | String | 是 | |
+| 属性  | state | true,false | bool | 是 | |
+| 事件  | @event | @event方法 | Function | 是 | 该事件为点击事件 |
