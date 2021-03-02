@@ -134,3 +134,38 @@
             }
         })
     },
+## 调用原生弹框
+    调用方式
+    HonYar.getSershow_alertver(api, params, func, platform,apiVersion)
+    源码
+    /**
+     * 请求服务
+     * @param {*} api 服务api
+     * @param {*} params 参数
+     * @param {*} func 回调
+     * @param {*} platform 平台代码
+     * @param {*} apiVersion 服务端api版本号
+     */
+    getServer(api, params, func, platform,apiVersion) {
+        let request = {
+            "platform": platform === undefined ? "1" : platform,
+            "apiVersion": apiVersion === undefined ? "1.0" : apiVersion,
+            "url": "",
+            "api": api,
+            "Content-Type": "application/json",
+            "needAuth": "true"
+        }
+        HonYarSmartSDK.getServerData(request, params, (res) => {
+            if (JSON.parse(res).code === 200) {
+                if (func !== undefined) {
+                    func(res)
+                } else {
+                    // console.log("func_undefined")
+                }
+            } else {
+                //弹错
+                console.error(res)
+                this.show_toast(res)
+            }
+        })
+    },

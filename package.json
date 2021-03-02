@@ -9,8 +9,13 @@
     "morgan": "^1.9.1",
     "serve-static": "^1.13.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0"
+  },
   "scripts": {
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "webpack --config config/webpack.config.js"
   }
 }
